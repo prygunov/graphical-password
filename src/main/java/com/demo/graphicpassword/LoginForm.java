@@ -30,6 +30,9 @@ public class LoginForm extends JFrame {
     private final List<Integer> enteredPassword = new ArrayList<>();
     private Object[][] data;
 
+    private final int columns = 6;
+    private final int rows = 6;
+
     LoginForm(ApplicationInterface applicationInterface) {
         setContentPane(rootPanel);
         setSize(700, 650);
@@ -73,7 +76,7 @@ public class LoginForm extends JFrame {
     ImageIcon[] loadImages() throws IOException {
         // загрузка картинок для графического пароля
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        int imagesSize = 36;
+        int imagesSize = rows*columns;
         ImageIcon[] images = new ImageIcon[imagesSize];
         for (int i = 1; i <= imagesSize; i++) {
             images[i-1] = new ImageIcon(ImageIO.read(classloader.getResourceAsStream(i + ".png")));
@@ -88,8 +91,7 @@ public class LoginForm extends JFrame {
     }
 
     private Object[][] getData(boolean random){
-        int columns = 6;
-        int rows = 6;
+
         data = new Object[rows][columns];
         try {
             ImageIcon[] imageIcons = loadImages();
