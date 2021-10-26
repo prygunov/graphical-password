@@ -73,9 +73,9 @@ public class LoginForm extends JFrame {
     ImageIcon[] loadImages() throws IOException {
         // загрузка картинок для графического пароля
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        int imagesSize = 38;
+        int imagesSize = 36;
         ImageIcon[] images = new ImageIcon[imagesSize];
-        for (int i = 1; i <= 38; i++) {
+        for (int i = 1; i <= imagesSize; i++) {
             images[i-1] = new ImageIcon(ImageIO.read(classloader.getResourceAsStream(i + ".png")));
         }
         return images;
